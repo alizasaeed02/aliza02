@@ -1,0 +1,31 @@
+
+describe("UPR", function() {
+  it("update information", () => {
+      // Visit the login page
+      cy.visit("https://gmail.com");
+
+      // Type email using force: true
+      cy.get('.cxMOTc > .rFrNMe').type('email');
+
+      cy.get('#identifierNext > .VfPpkd-dgl2Hf-ppHlrf-sM5MNb > .VfPpkd-LgbsSe > .VfPpkd-vQzf8d').click();
+      
+      // Check if CAPTCHA challenge appears
+      cy.get('#captchaimg', { timeout: 5000 }).then($captchaChallenge => {
+          if ($captchaChallenge.length > 0) {
+              // Manually solve the CAPTCHA challenge (interaction needed)
+              // Proceed with the next steps of your test
+          } else {
+              // No CAPTCHA challenge, proceed with the next steps of your test
+          }
+      });
+      cy.wait(30000);
+    
+      cy.get('#identifierNext > .VfPpkd-dgl2Hf-ppHlrf-sM5MNb > .VfPpkd-LgbsSe > .VfPpkd-vQzf8d').click();
+      // Continue with your test steps
+      // You might need to interact with the CAPTCHA challenge here
+      // For manual solving or simulation
+      
+      // Once CAPTCHA is solved or skipped, continue with your test steps
+  
+  })
+})
